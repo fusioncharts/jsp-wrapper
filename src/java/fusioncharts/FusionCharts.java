@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example;
+package fusioncharts;
 
 /**
  *
@@ -14,10 +14,10 @@ public class FusionCharts {
     private String renderTemplate = "<script type=\"text/javascript\">FusionCharts.ready(function () {                FusionCharts(\"__chartId__\").render();});</script>";
     private String[] chartOptions = new String[10];
     private String chartDataSource = "";
-    public FusionCharts(String type, String id, int width, int height, String renderAt, String dataFormat, String dataSource) {
+    public FusionCharts(String type, String id, String width, String height, String renderAt, String dataFormat, String dataSource) {
         this.chartOptions[0] = id;
-        this.chartOptions[1] = Integer.toString(width);
-        this.chartOptions[2] = Integer.toString(height);
+        this.chartOptions[1] = width;
+        this.chartOptions[2] = height;
         this.chartOptions[3] = renderAt;
         this.chartOptions[4] = type;
         this.chartOptions[5] = dataFormat;

@@ -4,7 +4,7 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
-<%@page import="com.example.FusionCharts" %>
+<%@page import="fusioncharts.FusionCharts" %>
 
 
 <!DOCTYPE html>
@@ -125,9 +125,9 @@
             chartXML = chartXML.replaceAll("__set__",  setAttributeString.toString());
 
             FusionCharts columnChart= new FusionCharts(
-            "column2d",// chartType
+            "bar2d",// chartType
                         "chart1",// chartId
-                        600,400,// chartWidth, chartHeight
+                        "600","400",// chartWidth, chartHeight
                         "chart",// chartContainer
                         "xml",// dataFormat
                        chartXML //dataSource

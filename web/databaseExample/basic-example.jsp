@@ -4,7 +4,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.example.FusionCharts" %>
+<%@page import="fusioncharts.FusionCharts" %>
 <%@page import="java.sql.*" %>
 <%@page import="java.util.*" %>
 <%@page import="com.google.gson.*" %>
@@ -119,7 +119,7 @@
             FusionCharts columnChart= new FusionCharts(
             "column2d",// chartType
                         "chart1",// chartId
-                        600,400,// chartWidth, chartHeight
+                        "600","400",// chartWidth, chartHeight
                         "chart",// chartContainer
                         "json",// dataFormat
                         gson.toJson(dataMap) //dataSource
