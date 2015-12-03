@@ -5,7 +5,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
-<%@page import="fusioncharts.FusionCharts" %>
 <%@page import="com.google.gson.*" %>
 
 <!DOCTYPE html>
@@ -13,13 +12,31 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Loading Data from a JSON String Generated from an Array - Fusioncharts.com</title>
-        <!--  Include the `fusioncharts.js` file. This file is needed to render the chart. Ensure that the path to this JS file is correct. Otherwise, it may lead to JavaScript errors. -->
+<!-- Step 1: Include the `fusioncharts.js` file. This file is needed to
+        render the chart. Ensure that the path to this JS file is correct.
+        Otherwise, it may lead to JavaScript errors.
+-->
         <script src="../scripts/fusioncharts.js"></script>
         <!-- End -->
     </head>
     <body>
         
         <div id="chart"></div>
+<!--    Step 2: Include the `FusionCharts.java` file as a package in your 
+        project.
+-->
+        <%@page import="fusioncharts.FusionCharts" %>
+        
+<!--    Step 3:Include the package in the file where you want to show 
+        FusionCharts as follows.
+        
+        Step 4: Create a chart object using the FusionCharts JAVA class 
+        constructor. Syntax for the constructor: 
+        `FusionCharts("type of chart", "unique chart id", "width of chart",
+                        "height of chart", "div id to render the chart", 
+                        "data format", "data source")`   
+-->        
+
         <%
         /* 
             google-gson
@@ -117,7 +134,7 @@
                     );
            
             %>
-            
+<!--    Step 5: Render the chart    -->            
             <%=columnChart.render()%>
             
             
