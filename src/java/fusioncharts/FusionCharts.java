@@ -5,10 +5,6 @@
  */
 package fusioncharts;
 
-/**
- *
- * @author suvradipsaha
- */
 public class FusionCharts {
     private String constructorTemplate = "<script type=\"text/javascript\">FusionCharts.ready(function () {new FusionCharts(__constructorOptions__);});</script>";
     private String renderTemplate = "<script type=\"text/javascript\">FusionCharts.ready(function () {                FusionCharts(\"__chartId__\").render();});</script>";
@@ -40,6 +36,7 @@ public class FusionCharts {
         str = str.replaceAll("\"\\[", "[");
         str = str.replaceAll("\\}\\]\"", "}]");
         str = str.replaceAll("\"\\}\"", "\"}");
+        str = str.replaceAll("\\}\"\\}", "}}");
         return str;
     }
     private String jsonEncode(String[] data){
