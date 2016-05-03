@@ -3,10 +3,10 @@ package org.apache.jsp.drillDownExample;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import com.example.FusionCharts;
 import java.sql.*;
 import java.util.*;
 import com.google.gson.*;
+import fusioncharts.FusionCharts;
 
 public final class country_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -50,19 +50,16 @@ public final class country_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
 
     
 /* 
-    The following 4 code lines contain the database connection information.
+    The following four code lines contain the database connection information.
     Alternatively, you can move these code lines to a separate file and
     include the file here. You can also modify this code based on your 
     database connection. 
  */
 
-   String hostdb = "localhost:3306";  // MySQl host
+   String hostdb = "localhost:3309";  // MySQl host
    String userdb = "root";  // MySQL username
    String passdb = "";  // MySQL password
    String namedb = "fusioncharts_jspsample";  // MySQL database name
@@ -79,110 +76,188 @@ public final class country_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>Creating Charts with Data from a Database - fusioncharts.com</title>\n");
-      out.write("        <!--  Include the `fusioncharts.js` file. This file is needed to render the chart. Ensure that the path to this JS file is correct. Otherwise, it may lead to JavaScript errors. -->\n");
+      out.write("<!--    Step 1: Include the `fusioncharts.js` file. This file is needed to\n");
+      out.write("        render the chart. Ensure that the path to this JS file is correct.\n");
+      out.write("        Otherwise, it may lead to JavaScript errors.\n");
+      out.write("--> \n");
       out.write("        <script src=\"../scripts/fusioncharts.js\"></script>\n");
-      out.write("        <!-- End -->\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("         <div id=\"chart\"></div>\n");
+      out.write("         \n");
+      out.write("<!--    Step 2: Include the `FusionCharts.java` file as a package in your \n");
+      out.write("        project.\n");
+      out.write("    \n");
+      out.write("        Step 3:Include the package in the file where you want to show \n");
+      out.write("        FusionCharts.\n");
+      out.write("\n");
+      out.write("-->\n");
+      out.write("        \n");
+      out.write("\n");
+      out.write("<!--\n");
+      out.write("        \n");
+      out.write("        Step 4: Create a chart object using the FusionCharts JAVA class \n");
+      out.write("        constructor. Syntax for the constructor: \n");
+      out.write("        `FusionCharts(\"type of chart\", \"unique chart id\", \"width of chart\",\n");
+      out.write("                        \"height of chart\", \"div id to render the chart\", \n");
+      out.write("                        \"data format\", \"data source\")`   \n");
+      out.write("-->         \n");
       out.write("        ");
 
-         /*
+         /* 
             google-gson
     
-            Gson is a Java library that can be used to convert Java Objects into 
-            their JSON representation. It can also be used to convert a JSON string to 
-            an equivalent Java object. Gson can work with arbitrary Java objects including
-            pre-existing objects that you do not have source-code of.
-            link : https://github.com/google/gson    
+            Gson is a Java library facilitating conversion of Java objects 
+            into their JSON representation and 
+            JSON strings into their equivalant Java objects. 
+            Gson can also work with arbitrary Java objects 
+            including the pre-existing ones that 
+            you may not have the source-code for. 
+            Read the note below this code for more details on the google-gson library.           
          */
     
             Gson gson = new Gson();
             
             
             // Form the SQL query that returns the top 10 most populous countries
-            String sql="SELECT * FROM Country ORDER BY Population DESC LIMIT 10";
+            String sqlQueryCountry="SELECT * FROM Country ORDER BY Population DESC LIMIT 10";
 
             // Prepare the query statement    
-            PreparedStatement pt=con.prepareStatement(sql);  
+            PreparedStatement ptCountry=con.prepareStatement(sqlQueryCountry);  
             // Prepare the query statement
-            ResultSet rs=pt.executeQuery();
+            ResultSet rsCountry=ptCountry.executeQuery();
             
-            // The 'chartobj' map object holds the chart attributes and data.
-            Map<String, String> chartobj = new HashMap<String, String>();
+            // The 'chart' map object holds the chart attributes and data.
+            Map<String, String> chart = new HashMap<String, String>();
             
-            chartobj.put("caption", "Split of Visitors by Age Group");
-            chartobj.put("subCaption" , "Last year");
-            chartobj.put("paletteColors" , "#0075c2,#1aaf5d,#f2c500,#f45b00,#8e0000");
-            chartobj.put("bgColor" , "#ffffff");
-            chartobj.put("showBorder" , "0");
-            chartobj.put("use3DLighting" , "0");
-            chartobj.put("showShadow" , "0");
-            chartobj.put("enableSmartLabels" , "0");
-            chartobj.put("startingAngle" , "0");
-            chartobj.put("showPercentValues" , "1");
-            chartobj.put("showPercentInTooltip" , "0");
-            chartobj.put("decimals" , "1");
-            chartobj.put("captionFontSize" , "14");
-            chartobj.put("subcaptionFontSize" , "14");
-            chartobj.put("subcaptionFontBold" , "0");
-            chartobj.put("toolTipColor" , "#ffffff");
-            chartobj.put( "toolTipBorderThickness" , "0");
-            chartobj.put("toolTipBgColor" , "#000000");
-            chartobj.put("toolTipBgAlpha" , "80");
-            chartobj.put("toolTipBorderRadius" , "2");
-            chartobj.put("toolTipPadding" , "5");
-            chartobj.put("showHoverEffect" , "1");
-            chartobj.put("showLegend" , "1");
-            chartobj.put("legendBgColor" , "#ffffff");
-            chartobj.put("legendBorderAlpha" , "0");
-            chartobj.put("legendShadow" , "0");
-            chartobj.put("legendItemFontSize" , "10");
-            chartobj.put("legendItemFontColor" , "#666666");
-            chartobj.put("useDataPlotColorForLabels" , "1");
+            chart.put("caption", "Top 10 Most Populous Countries");
+            chart.put("paletteColors", "#0075c2");
+            chart.put("bgColor", "#ffffff");
+            chart.put("usePlotGradientColor", "0");
+            chart.put("plotBorderAlpha", "10");
+            chart.put("showXAxisLine", "1");
+            chart.put("xAxisLineColor", "#999999");
+            chart.put("showValues", "0");
+            chart.put("divlineColor", "#999999");
+            chart.put("divLineIsDashed", "1");
+            chart.put("showAlternateHGridColor", "0");
+            chart.put("showBorder", "0");
+            chart.put("baseFont", "Helvetica Neue,Arial");
+            chart.put("captionFontSize", "14");
  
             // Push the data into the array using map object.
-            ArrayList arrData = new ArrayList();
-            while(rs.next())
-            {
-                Map<String, String> lv = new HashMap<String, String>();
-                lv.put("label", rs.getString("Name"));
-                lv.put("value", rs.getString("Population"));
-                lv.put("link", "countryDrillDown.jsp?Country=" + rs.getString("Code"));
-                arrData.add(lv);             
-            }
+            ArrayList data = new ArrayList();
             
-            //close the connection.
-            rs.close();
+            /*
+                `linkeddata` array: It contains data for individual linked 
+                items. The links should be defined in the format 
+                `newchart-dataformat-datasource`. 
+            */
+            ArrayList linkeddata = new ArrayList();
+            while(rsCountry.next()) {
+            /*
+                The `link` attribute: It defines the unique id of the linked 
+                data inside the `linkeddata` array. Using this attribute 
+                FusionCharts finds out the corresponding data for each linked 
+                item.
+                
+                For the data string method, dataformat takes JSON and 
+                datasource takes the value of the unique identifier that 
+                refers to the data embedded inside the linkeddata array in 
+                the parent data source. So the Country drill-down links will 
+                get generated as newchart-json-IND, newchart-json-CHN ... 
+            */    
+                Map<String, String> lv = new HashMap<String, String>();
+                lv.put("label", rsCountry.getString("Name"));
+                lv.put("value", rsCountry.getString("Population"));
+                lv.put("link", "newchart-json-" + rsCountry.getString("Code"));
+                data.add(lv);
+      
+                // Create the linkedDataObj for cities drilldown    
+                Map<String, String> linkedDataObj = new HashMap<String, String>();
+                // Inititate the linkedDataObj for cities drilldown
+                linkedDataObj.put("id", rsCountry.getString("Code"));
+                
+               // The 'linkedChartAttribute' map object holds the chart attributes .
+                Map<String, String> linkedChartAttribute = new HashMap<String, String>();
+                linkedChartAttribute.put("caption" , "Top 10 Most Populous Cities - " + rsCountry.getString("Name") );
+                linkedChartAttribute.put("paletteColors" , "#0075c2");
+                linkedChartAttribute.put("bgColor" , "#ffffff");
+                linkedChartAttribute.put("borderAlpha", "20");
+                linkedChartAttribute.put("canvasBorderAlpha", "0");
+                linkedChartAttribute.put("usePlotGradientColor", "0");
+                linkedChartAttribute.put("plotBorderAlpha", "10");
+                linkedChartAttribute.put("showXAxisLine", "1");
+                linkedChartAttribute.put("xAxisLineColor" , "#999999");
+                linkedChartAttribute.put("showValues", "0");
+                linkedChartAttribute.put("divlineColor" , "#999999");
+                linkedChartAttribute.put("divLineIsDashed" , "1");
+                linkedChartAttribute.put("showAlternateHGridColor" , "0");
+
+                // Convert the data in the `City` model into a format that can be consumed by FusionCharts.     
+                ArrayList linkedChartData = new ArrayList();
+                
+                // Filtering the data base on the Country Code
+                // Form the SQL query that returns the top 10 most populous countries
+                String sqlQueryCity="SELECT Name, Population FROM City WHERE CountryCode = ? ORDER BY Population DESC LIMIT 10";
+
+                // Prepare the query statement.
+                PreparedStatement ptCity=con.prepareStatement(sqlQueryCity);  
+                ptCity.setString(1, rsCountry.getString("Code"));
+                // Execute the query.
+                ResultSet rsCity=ptCity.executeQuery();
+                while(rsCity.next()) {
+                  Map<String, String> arrDara = new HashMap<String, String>();
+                  arrDara.put("label", rsCity.getString("Name"));
+                  arrDara.put("value", rsCity.getString("Population"));
+                  linkedChartData.add(arrDara);
+                } 
+                
+                //closing the connection.
+                rsCity.close();
+            
+            /*  create a 'linkedchart' map object to make a FC's 
+                linkedchart structure.
+            */    
+                Map<String, String> linkedchart = new HashMap<String, String>();
+            /*
+                gson.toJson() the data to retrieve the string containing the
+                JSON representation of the data in the array.
+            */    
+                linkedchart.put("chart", gson.toJson(linkedChartAttribute));
+                linkedchart.put("data", gson.toJson(linkedChartData));
+               
+                linkedDataObj.put("linkedchart", gson.toJson(linkedchart));
+                linkeddata.add(linkedDataObj);
+            } //end of while loop
+            
+            //closing the connection.
+            rsCountry.close();
  
             //create 'dataMap' map object to make a complete FC datasource.
-             Map<String, String> dataMap = new LinkedHashMap<String, String>();  
-        /*
-            gson.toJson() the data to retrieve the string containing the
-            JSON representation of the data in the array.
-        */
-            dataMap.put("chart", gson.toJson(chartobj));
-            dataMap.put("data", gson.toJson(arrData));
+            Map<String, String> dataMap = new LinkedHashMap<String, String>();  
+        
+            dataMap.put("chart", gson.toJson(chart));
+            dataMap.put("data", gson.toJson(data));
+            dataMap.put("linkeddata", gson.toJson(linkeddata));
 
             FusionCharts columnChart= new FusionCharts(
-            "column2d",// chartType
-                        "chart1",// chartId
-                        600,400,// chartWidth, chartHeight
-                        "chart",// chartContainer
-                        "json",// dataFormat
-                        gson.toJson(dataMap) //dataSource
+                        "column2d",             //type of chart
+                        "chart1",               //unique chart ID
+                        "500","300",            //width and height of the chart
+                        "chart",                //div ID of the chart container
+                        "json",                 //data format
+                        gson.toJson(dataMap)    //data source
                     );
            
             
       out.write("\n");
-      out.write("            \n");
+      out.write("<!--    Step 5: Render the chart    -->                \n");
       out.write("            ");
       out.print(columnChart.render());
       out.write("\n");
-      out.write("        \n");
       out.write("    </body>\n");
-      out.write("</html>\n");
-      out.write("\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
