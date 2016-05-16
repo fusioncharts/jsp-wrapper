@@ -119,9 +119,7 @@
             //close the connection.
             result.close();
  
-          
-            
-            
+  
             //create 'dataMap' map object to make a complete FusionCharts datasource.
              Map<String, String> dataMap = new LinkedHashMap<String, String>();  
         /*
@@ -158,9 +156,9 @@
                 Map<String, String> categoryinner = new HashMap<String, String>();
                 ArrayList category = new ArrayList();
                 int counter = -1;
-                try {   
-                    while(rs.next()) {
-                        
+                try {
+                    rs.beforeFirst();
+                    while(rs.next()) {    
                         Map<String, String> lv = new HashMap<String, String>();
                         lv.put("label", rs.getString(data_item));
                         category.add(lv);
@@ -196,11 +194,10 @@
                 ArrayList makedata = new ArrayList();
                 try {
                 //is used to move the cursor to the first row in result set object.
-                    rs.first();
+                   rs.beforeFirst();
                     while(rs.next()) {
                       Map<String, String> preparedata = new HashMap<String, String>();  
                       preparedata.put("value", rs.getString(seriescolumnname));
-
                       makedata.add(preparedata);  
                     }
                     datasetinner.put("data", gson.toJson(makedata));
