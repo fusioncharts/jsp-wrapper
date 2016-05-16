@@ -1,8 +1,3 @@
-<%-- 
-    Document   : multi-series-line-chart-with-db
-    Author     : suvradip saha
---%>
-
 <%@page import="javax.swing.JOptionPane"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*" %>
