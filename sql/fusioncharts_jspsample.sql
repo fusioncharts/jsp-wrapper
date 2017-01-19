@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 23, 2015 at 11:24 AM
--- Server version: 5.6.14
--- PHP Version: 5.5.6
+-- Generation Time: Jan 19, 2017 at 11:31 AM
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `fusioncharts_jspsample`
@@ -28,15 +28,13 @@ USE `fusioncharts_jspsample`;
 -- Table structure for table `City`
 --
 
-CREATE TABLE IF NOT EXISTS `City` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `City` (
+  `ID` int(11) NOT NULL,
   `Name` char(35) NOT NULL DEFAULT '',
   `CountryCode` char(3) NOT NULL DEFAULT '',
   `District` char(20) NOT NULL DEFAULT '',
-  `Population` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ID`),
-  KEY `CountryCode` (`CountryCode`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4080 ;
+  `Population` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `City`
@@ -1094,8 +1092,7 @@ INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUE
 (1049, 'Thane (Thana)', 'IND', 'Maharashtra', 803389),
 (1050, 'Allahabad', 'IND', 'Uttar Pradesh', 792858),
 (1051, 'Meerut', 'IND', 'Uttar Pradesh', 753778),
-(1052, 'Vishakhapatnam', 'IND', 'Andhra Pradesh', 752037);
-INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUES
+(1052, 'Vishakhapatnam', 'IND', 'Andhra Pradesh', 752037),
 (1053, 'Jabalpur', 'IND', 'Madhya Pradesh', 741927),
 (1054, 'Amritsar', 'IND', 'Punjab', 708835),
 (1055, 'Faridabad', 'IND', 'Haryana', 703592),
@@ -1103,7 +1100,8 @@ INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUE
 (1057, 'Gwalior', 'IND', 'Madhya Pradesh', 690765),
 (1058, 'Jodhpur', 'IND', 'Rajasthan', 666279),
 (1059, 'Nashik (Nasik)', 'IND', 'Maharashtra', 656925),
-(1060, 'Hubli-Dharwad', 'IND', 'Karnataka', 648298),
+(1060, 'Hubli-Dharwad', 'IND', 'Karnataka', 648298);
+INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUES
 (1061, 'Solapur (Sholapur)', 'IND', 'Maharashtra', 604215),
 (1062, 'Ranchi', 'IND', 'Jharkhand', 599306),
 (1063, 'Bareilly', 'IND', 'Uttar Pradesh', 587211),
@@ -2197,8 +2195,7 @@ INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUE
 (2151, 'Lengshuijiang', 'CHN', 'Hunan', 137994),
 (2152, 'Laiyang', 'CHN', 'Shandong', 137080),
 (2153, 'Xianning', 'CHN', 'Hubei', 136811),
-(2154, 'Dali', 'CHN', 'Yunnan', 136554);
-INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUES
+(2154, 'Dali', 'CHN', 'Yunnan', 136554),
 (2155, 'Anda', 'CHN', 'Heilongjiang', 136446),
 (2156, 'Jincheng', 'CHN', 'Shanxi', 136396),
 (2157, 'Longyan', 'CHN', 'Fujian', 134481),
@@ -2208,7 +2205,8 @@ INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUE
 (2161, 'Binzhou', 'CHN', 'Shandong', 133555),
 (2162, 'Linhe', 'CHN', 'Inner Mongolia', 133183),
 (2163, 'Wuwei', 'CHN', 'Gansu', 133101),
-(2164, 'Duyun', 'CHN', 'Guizhou', 132971),
+(2164, 'Duyun', 'CHN', 'Guizhou', 132971);
+INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUES
 (2165, 'Mishan', 'CHN', 'Heilongjiang', 132744),
 (2166, 'Shangrao', 'CHN', 'Jiangxi', 132455),
 (2167, 'Changji', 'CHN', 'Xinxiang', 132260),
@@ -3258,8 +3256,7 @@ INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUE
 (3211, 'Prešov', 'SVK', 'Východné Slovensko', 93977),
 (3212, 'Ljubljana', 'SVN', 'Osrednjeslovenska', 270986),
 (3213, 'Maribor', 'SVN', 'Podravska', 115532),
-(3214, 'Mogadishu', 'SOM', 'Banaadir', 997000);
-INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUES
+(3214, 'Mogadishu', 'SOM', 'Banaadir', 997000),
 (3215, 'Hargeysa', 'SOM', 'Woqooyi Galbeed', 90000),
 (3216, 'Kismaayo', 'SOM', 'Jubbada Hoose', 90000),
 (3217, 'Colombo', 'LKA', 'Western', 645000),
@@ -3275,7 +3272,8 @@ INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUE
 (3227, 'Port Sudan', 'SDN', 'al-Bahr al-Ahmar', 308195),
 (3228, 'Kassala', 'SDN', 'Kassala', 234622),
 (3229, 'Obeid', 'SDN', 'Kurdufan al-Shamaliy', 229425),
-(3230, 'Nyala', 'SDN', 'Darfur al-Janubiya', 227183),
+(3230, 'Nyala', 'SDN', 'Darfur al-Janubiya', 227183);
+INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUES
 (3231, 'Wad Madani', 'SDN', 'al-Jazira', 211362),
 (3232, 'al-Qadarif', 'SDN', 'al-Qadarif', 191164),
 (3233, 'Kusti', 'SDN', 'al-Bahr al-Abyad', 173599),
@@ -4132,7 +4130,7 @@ INSERT INTO `City` (`ID`, `Name`, `CountryCode`, `District`, `Population`) VALUE
 -- Table structure for table `Country`
 --
 
-CREATE TABLE IF NOT EXISTS `Country` (
+CREATE TABLE `Country` (
   `Code` char(3) NOT NULL DEFAULT '',
   `Name` char(52) NOT NULL DEFAULT '',
   `Continent` enum('Asia','Europe','North America','Africa','Oceania','Antarctica','South America') NOT NULL DEFAULT 'Asia',
@@ -4147,8 +4145,7 @@ CREATE TABLE IF NOT EXISTS `Country` (
   `GovernmentForm` char(45) NOT NULL DEFAULT '',
   `HeadOfState` char(60) DEFAULT NULL,
   `Capital` int(11) DEFAULT NULL,
-  `Code2` char(2) NOT NULL DEFAULT '',
-  PRIMARY KEY (`Code`)
+  `Code2` char(2) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -4396,6 +4393,182 @@ INSERT INTO `Country` (`Code`, `Name`, `Continent`, `Region`, `SurfaceArea`, `In
 ('ZMB', 'Zambia', 'Africa', 'Eastern Africa', 752618.00, 1964, 9169000, 37.2, 3377.00, 3922.00, 'Zambia', 'Republic', 'Frederick Chiluba', 3162, 'ZM'),
 ('ZWE', 'Zimbabwe', 'Africa', 'Eastern Africa', 390757.00, 1980, 11669000, 37.8, 5951.00, 8670.00, 'Zimbabwe', 'Republic', 'Robert G. Mugabe', 4068, 'ZW');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `harry_supermart`
+--
+
+CREATE TABLE `harry_supermart` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `previous_year` varchar(10) DEFAULT NULL,
+  `current_year` varchar(10) DEFAULT NULL,
+  `label` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `harry_supermart`
+--
+
+INSERT INTO `harry_supermart` (`id`, `previous_year`, `current_year`, `label`) VALUES
+(4, '20162', '55087', 'Amaya'),
+(12, '95417', '80029', 'Henry'),
+(18, '95270', '54715', 'Yvonne'),
+(31, '54432', '77511', 'Alexander'),
+(35, '41088', '86795', 'Rana'),
+(45, '58619', '31502', 'Lev'),
+(49, '37589', '73560', 'Blaine'),
+(58, '37741', '36663', 'Dai'),
+(61, '88511', '58552', 'Leila'),
+(64, '30502', '48265', 'Colt'),
+(67, '56252', '43076', 'Damian');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `MOCK_DATA`
+--
+
+CREATE TABLE `MOCK_DATA` (
+  `id` int(11) NOT NULL,
+  `MONTHS` varchar(50) DEFAULT NULL,
+  `REVENUES` int(11) DEFAULT NULL,
+  `PROFITS` int(11) DEFAULT NULL,
+  `PROFIT_IN_PERCENTAGE` decimal(3,1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `MOCK_DATA`
+--
+
+INSERT INTO `MOCK_DATA` (`id`, `MONTHS`, `REVENUES`, `PROFITS`, `PROFIT_IN_PERCENTAGE`) VALUES
+(1, 'Jan', 19405, 3741, '33.3'),
+(2, 'Feb', 22394, 4975, '33.3'),
+(3, 'Mar', 18967, 2256, '6.5'),
+(4, 'Apr', 22004, 5393, '6.4'),
+(5, 'May', 22082, 7392, '34.7'),
+(6, 'Jun', 22588, 3121, '22.2'),
+(7, 'July', 22708, 2385, '9.4'),
+(8, 'Aug', 21389, 5110, '13.0'),
+(9, 'Sept', 19451, 5618, '30.0'),
+(10, 'Oct', 16247, 6467, '33.0'),
+(11, 'Nov', 22209, 2653, '16.0'),
+(12, 'Dec', 22438, 2445, '29.0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `number_of_visitor`
+--
+
+CREATE TABLE `number_of_visitor` (
+  `label` varchar(15) NOT NULL,
+  `bakersfield_central` int(11) NOT NULL,
+  `los_angeles_topanga` int(11) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `number_of_visitor`
+--
+
+INSERT INTO `number_of_visitor` (`label`, `bakersfield_central`, `los_angeles_topanga`, `id`) VALUES
+('Mon', 15123, 13400, 1),
+('Tue', 14233, 12800, 2),
+('Wed', 25507, 22800, 3),
+('Thu', 9110, 12400, 4),
+('Fri', 15529, 15800, 5),
+('Sat', 20803, 19800, 6),
+('Sun', 19202, 21800, 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `top_5_stores`
+--
+
+CREATE TABLE `top_5_stores` (
+  `id` int(11) NOT NULL,
+  `label` varchar(50) NOT NULL,
+  `value` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `top_5_stores`
+--
+
+INSERT INTO `top_5_stores` (`id`, `label`, `value`) VALUES
+(1, 'Bakersfield Central', 880000),
+(2, 'Garden Groove Harbour', 730000),
+(3, 'Los Angeles Topanga', 590000),
+(4, 'Compton-Rancho Dom', 520000),
+(5, 'Daly City Serramonte', 330000);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `City`
+--
+ALTER TABLE `City`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `CountryCode` (`CountryCode`);
+
+--
+-- Indexes for table `Country`
+--
+ALTER TABLE `Country`
+  ADD PRIMARY KEY (`Code`);
+
+--
+-- Indexes for table `harry_supermart`
+--
+ALTER TABLE `harry_supermart`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `MOCK_DATA`
+--
+ALTER TABLE `MOCK_DATA`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `number_of_visitor`
+--
+ALTER TABLE `number_of_visitor`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `top_5_stores`
+--
+ALTER TABLE `top_5_stores`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `City`
+--
+ALTER TABLE `City`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4080;
+--
+-- AUTO_INCREMENT for table `harry_supermart`
+--
+ALTER TABLE `harry_supermart`
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+--
+-- AUTO_INCREMENT for table `MOCK_DATA`
+--
+ALTER TABLE `MOCK_DATA`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `top_5_stores`
+--
+ALTER TABLE `top_5_stores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
