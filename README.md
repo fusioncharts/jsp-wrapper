@@ -16,7 +16,7 @@ JAVA 6 or higher
 ### Installation
  ** Download the **[fusioncharts-suite-xt](http://www.fusioncharts.com/)**
  * Unzip the archive and move to "fusioncharts-suite-xt > integrations > java > fusioncharts-wrapper" to get the "fusioncharts.java" file.
- * Coy this file to your project folder.
+ * Copy this file to your project folder.
  * Start using the methods and classes available under the **FusionCharts** namespace to generate charts in your project.. 
  
 **Note : FusionCharts JS libraries should already be installed within your project in order to work with this wrapper.**
