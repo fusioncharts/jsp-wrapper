@@ -14,9 +14,9 @@ Conventionally, FusionCharts Suite XT uses JavaScript and HTML to generate chart
 JAVA 6 or higher
 
 ### Installation
- * Download the **[`JSP wrapper package`](http://www.fusioncharts.com/jsp-charts/)**
- * Unzip the archive and move its contents to the **"/jsp-wrapper-master/src/java/fusioncharts/"** to get the **"FusionCharts.java"** main class file.
- * Include **"FusionCharts.java"** in your project(Check **[the usage guide](http://www.fusioncharts.com/dev/using-with-server-side-languages/java/introduction.html)** for details).
+ ** Download the **[fusioncharts-suite-xt](http://www.fusioncharts.com/)**
+ * Unzip the archive and move to "fusioncharts-suite-xt > integrations > java > fusioncharts-wrapper" to get the "FusionCharts.java" file.
+ * Copy "FusionCharts.vb" to App_code folder inside your project.
  * Start using the methods and classes available under the **FusionCharts** namespace to generate charts in your project.. 
  
 **Note : FusionCharts JS libraries should already be installed within your project in order to work with this wrapper.**
