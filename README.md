@@ -86,6 +86,25 @@ The following parameters can be used in a constructor in the order they are desc
 ###### **Render**
 This is a public method used to generate the HTML code for rendering a chart. This function assumes that you've already included the FusionCharts JavaScript library in your page.
 
+###### **AddEvent**
+This is a public method used to generate the html code to attachevent to a chart. This function assumes that you've already included the FusionCharts JavaScript class in your page. The following parameters have to be passed in order to attach event function.
+
+| Parameter | Type | Description |
+|:-------|:----------:| :------|
+| eventName | `String` | which event you ean to bind. e.g. `dataLoaded`.|
+|funcName | `String` | javascript function, which is written in your client side code|
+
+chartObj.AddEvent("dataLoaded", "onDataLoaded");
+
+###### **AddMessage**
+This is a public method used to generate the html code to  customize chart messages. This function assumes that you've already included the FusionCharts JavaScript class in your page. The following parameters have to be passed in this method.
+
+| Parameter | Type | Description |
+|:-------|:----------:| :------|
+| messageName | `String` | which parameter want to customize. e.g. `loadMessage`.|
+|messageText | `String` | customized value|
+
+chartObj.AddMessage("loadMessage", "please wait data is being loaded");
 
 ### License
 
