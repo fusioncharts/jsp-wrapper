@@ -87,7 +87,7 @@ The following parameters can be used in a constructor in the order they are desc
 This is a public method used to generate the HTML code for rendering a chart. This function assumes that you've already included the FusionCharts JavaScript library in your page.
 
 ###### **AddEvent**
-This is a public method used to generate the html code to attachevent to a chart. This function assumes that you've already included the FusionCharts JavaScript class in your page. The following parameters have to be passed in order to attach event function.
+This is a public method used to generate the html code to add an event to a chart. This function assumes that you've already included the FusionCharts JavaScript class in your page. The following parameters have to be passed in order to attach event function.
 
 | Parameter | Type | Description |
 |:-------|:----------:| :------|
