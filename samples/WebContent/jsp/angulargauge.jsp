@@ -10,6 +10,9 @@
 <link href="../Styles/ChartSampleStyleSheet.css" rel="stylesheet" />
 <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+   <script>
+   </script>
+   
 </head>
 <body>
 <h3>Angular Gauge</h3>

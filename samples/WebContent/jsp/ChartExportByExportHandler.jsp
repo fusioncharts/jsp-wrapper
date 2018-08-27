@@ -8,7 +8,11 @@
 <link href="../Styles/ChartSampleStyleSheet.css" rel="stylesheet" />
 <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
    <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
-
+<script>
+function onRenderComplete() {
+    console.log("event: render");
+}
+</script>
 </head>
 <body>
 <h3>Export Chart As Image (server-side)</h3>
@@ -30,5 +34,6 @@
         %>
    
 		<%=column_chart.render()%>
+		<%=column_chart.addEvent("renderComplete","onRenderComplete")%>
 </body>
 </html>

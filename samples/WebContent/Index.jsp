@@ -26,7 +26,23 @@
     <div><span><a href = "jsp/CommonTheme.jsp">Chart Themes</a></span></div>
     <div><span><a href = "jsp/xmlUrlData.jsp">Chart using data from XML URL</a></span></div>
     <div><span><a href = "jsp/jsonUrlData.jsp">Chart using data from JSON URL</a></span></div>
-
+    <div><span><a href = "jsp/ChartResize.jsp">Dynamic Chart Resize</a></span></div>
+    <div><span><a href = "jsp/DynamicChartType.jsp">Chart Type Change At Runtime</a></span></div>
+    <div><span><a href = "jsp/ChartAnnotations.jsp">Using Annotations On Chart</a></span></div>
+    <div><span><a href = "jsp/ChartUpdateOnClick.jsp">Updating Different ChartL</a></span></div>
+    <div><span><a href = "jsp/ChartSpclChar.jsp">Use of specia characters</a></span></div>
+    <div><span><a href = "jsp/ChartTooltipCustomization.jsp">customize chart tooltip</a></span></div>
+    <div><span><<a href ="jsp/ChartInstanceLevelAPI.jsp">"Add event to a chart dyamically" </a></span></div>
+    <div><span><a href ="jsp/ChartInstanceLevelAPI.jsp">Add event to a chart dyamically </a></span></div>
+     <div><span><a href ="jsp/ChartMessageExample.jsp">Configure chart message </a></span></div>
+     <div><span><a href="jsp/GetDataSelectScatterChart.jsp">Get data from select scatter chart and show them in tabular format </a></span></div>
+     <div><span><a href="jsp/NumberFormatModule.jsp">Use of fusioncharts number module API </a></span></div>
+     <div><span><a href ="jsp/InteractiveEvent.jsp">Show data plot value on click </a></span></div>
+     <div><span><a href="jsp/ProductLevelAPI.jsp">Change chart properties dynamically </a></span></div>
+     <div><span><a href="jsp/ProductLifeCycleEvent.jsp">sample to showcase one product life cycle event attachment </a></span></div>
+     <div><span><a href="jsp/SpecialChartTypeAPI.jsp">shocasing use special chart type API </a></span></div>
+     <div><span><a href="jsp/SpecialEvent.jsp">example of data update event </a></span></div>
+     <div><span><a href="jsp/UpdateDataRuntime.jsp">update dial value on runtime </a></span></div>
 </div>
 </body>
 </html>

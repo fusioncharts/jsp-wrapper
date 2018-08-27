@@ -16,9 +16,7 @@
 <body>
 <script type="text/javascript">
         FusionCharts && FusionCharts.ready(function () {
-            
-            //FusionCharts.options.defaultTheme = "fint";
-
+        	FusionCharts.options.defaultTheme="fusion";
             var trans = document.getElementById("controllers").getElementsByTagName("input");
             for (var i=0, len=trans.length; i<len; i++) {                
                 if (trans[i].type == "radio"){
@@ -30,11 +28,12 @@
         });
 
         function ChangeTheme(theme) {
-            for (var k in FusionCharts.items) {
+           /* for (var k in FusionCharts.items) {
                 if (FusionCharts.items.hasOwnProperty(k)) {
                     FusionCharts.items[k].setChartAttribute('theme', theme);
                 }
-            }
+            } */
+        	FusionCharts.options.defaultTheme=theme;
         };
 
    </script>
@@ -71,27 +70,27 @@
     </div>
 <div><span><a href="../Index.jsp">Go Back</a></span></div>
 <%
-String barChartData = "{        'chart': {          'caption': 'Lead sources by industry',          'yAxisName': 'Number of Leads',          'alignCaptionWithCanvas': '0',          'plotToolText': '<b>$dataValue</b> leads received',        },        'data': [{            'label': 'Travel & Leisure',            'value': '41'          },          {            'label': 'Advertising/Marketing/PR',            'value': '39'          },          {            'label': 'Other',            'value': '38'          },          {            'label': 'Real Estate',            'value': '32'          },          {            'label': 'Communications/Cable/Phone',            'value': '26'          },          {            'label': 'Construction',            'value': '25'          },          {            'label': 'Entertainment',            'value': '25'          },          {            'label': 'Staffing Firm/Full Time/Temporary',            'value': '24'          },          {            'label': 'Transportation/Logistics',            'value': '23'          },          {            'label': 'Utilities',            'value': '22'          },          {            'label': 'Aerospace/Defense Products',            'value': '18'          },          {            'label': 'Banking/Finance/Securities',            'value': '16'          },          {            'label': 'Consumer Products - Non-Durables',            'value': '15'          },          {            'label': 'Distribution',            'value': '13'          },          {            'label': 'Education',            'value': '12'          },          {            'label': 'Health Products & Services',            'value': '11'          },          {            'label': 'Hospitality & Hotels',            'value': '10'          },          {            'label': 'Non-Business/Residential',            'value': '6'          },          {            'label': 'Pharmaceutical',            'value': '4'          },          {            'label': 'Printing & Publishing',            'value': '1'          },          {            'label': 'Professional Services',            'value': '1'          },          {            'label': 'VAR/ISV',            'value': '1'          },          {            'label': 'Warranty Administrators',            'value': '1'          }        ]      }";
-String lineChartData = "{      'chart': {        'caption': 'Average Fastball Velocity',        'yAxisName' : 'Velocity (in mph)',        'subCaption': '[2005-2016]',        'numberSuffix': ' mph',        'rotateLabels': '1',        'setAdaptiveYMin': '1',     },      'data': [{        'label': '2005',        'value': '89.45'      }, {        'label': '2006',        'value': '89.87'      }, {        'label': '2007',        'value': '89.64'      }, {        'label': '2008',        'value': '90.13'      }, {        'label': '2009',        'value': '90.67'      }, {        'label': '2010',        'value': '90.54'      }, {        'label': '2011',        'value': '90.75'      }, {        'label': '2012',        'value': '90.8'      }, {        'label': '2013',        'value': '91.16'      }, {        'label': '2014',        'value': '91.37'      }, {        'label': '2015',        'value': '91.66'      }, {        'label': '2016',        'value': '91.8'      }, ]    }";
+String multiSeriesData = "{      'chart': {        'caption': 'App Publishing Trend',        'subCaption': '2012-2016',        'xAxisName': 'Years',        'yAxisName' : 'Total number of apps in store',        'formatnumberscale': '1',        'drawCrossLine':'1',        'plotToolText' : '<b>$dataValue</b> apps on $seriesName in $label'   },      'categories': [{        'category': [{          'label': '2012'        }, {          'label': '2013'        }, {          'label': '2014'        }, {          'label': '2015'        },{        'label': '2016'        }        ]      }],      'dataset': [{        'seriesname': 'iOS App Store',        'data': [{          'value': '125000'        }, {          'value': '300000'        }, {          'value': '480000'        }, {          'value': '800000'        }, {          'value': '1100000'        }]      }, {        'seriesname': 'Google Play Store',        'data': [{          'value': '70000'        }, {          'value': '150000'        }, {          'value': '350000'        }, {          'value': '600000'        },{          'value': '1400000'        }]      }, {        'seriesname': 'Amazon AppStore',        'data': [{          'value': '10000'        }, {          'value': '100000'        }, {          'value': '300000'        }, {          'value': '600000'        },{          'value': '900000'        }]      }]    }";
+String singlesSeriesData = "{      'chart': {        'caption': 'Average Fastball Velocity',        'yAxisName' : 'Velocity (in mph)',        'subCaption': '[2005-2016]',        'numberSuffix': ' mph',        'rotateLabels': '1',        'setAdaptiveYMin': '1',     },      'data': [{        'label': '2005',        'value': '89.45'      }, {        'label': '2006',        'value': '89.87'      }, {        'label': '2007',        'value': '89.64'      }, {        'label': '2008',        'value': '90.13'      }, {        'label': '2009',        'value': '90.67'      }, {        'label': '2010',        'value': '90.54'      }, {        'label': '2011',        'value': '90.75'      }, {        'label': '2012',        'value': '90.8'      }, {        'label': '2013',        'value': '91.16'      }, {        'label': '2014',        'value': '91.37'      }, {        'label': '2015',        'value': '91.66'      }, {        'label': '2016',        'value': '91.8'      }, ]    }";
 //Create chart instance
 // charttype, chartID, width, height,containerid, data format, data
 FusionCharts firstChart = new FusionCharts(
-		  "bar2d", 
-		  "bar_chart", 
-		  "800",
-		  "550", 
+		  "overlappedcolumn2d", 
+		  "overlappedcolumn_chart", 
+		  "600",
+		  "300", 
 		  "first_chart",
 		  "json", 
-		  barChartData
+		  multiSeriesData
 );
 FusionCharts secondChart = new FusionCharts(
-		  "line", 
-		  "line_chart", 
-		  "800",
-		  "550", 
+		  "column2d", 
+		  "column_chart", 
+		  "600",
+		  "300", 
 		  "second_chart",
 		  "json", 
-		  lineChartData
+		  singlesSeriesData
 );
 %>
 <%=firstChart.render() %>
