@@ -29,9 +29,10 @@
     <div><span><a href = "jsp/ChartResize.jsp">Dynamic Chart Resize</a></span></div>
     <div><span><a href = "jsp/DynamicChartType.jsp">Chart Type Change At Runtime</a></span></div>
     <div><span><a href = "jsp/ChartAnnotations.jsp">Using Annotations On Chart</a></span></div>
-    <div><span><a href = "jsp/ChartUpdateOnClick.jsp">Updating Different ChartL</a></span></div>
+    <div><span><a href = "jsp/ChartUpdateOnClick.jsp">Updating Different Chart</a></span></div>
     <div><span><a href = "jsp/ChartSpclChar.jsp">Use of specia characters</a></span></div>
     <div><span><a href = "jsp/ChartTooltipCustomization.jsp">customize chart tooltip</a></span></div>
+	<div><span><a href ="jsp/ChartLanguage.jsp">Use of different language</a></span></div>
     <div><span><<a href ="jsp/ChartInstanceLevelAPI.jsp">"Add event to a chart dyamically" </a></span></div>
     <div><span><a href ="jsp/ChartInstanceLevelAPI.jsp">Add event to a chart dyamically </a></span></div>
      <div><span><a href ="jsp/ChartMessageExample.jsp">Configure chart message </a></span></div>
