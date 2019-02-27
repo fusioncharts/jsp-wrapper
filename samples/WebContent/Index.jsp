@@ -10,8 +10,20 @@
 <body>
 <h3>Samples for Java</h3>
 <div>
-    <div><span><a href ="jsp/first_chart.jsp">Simple Chart Using Array</a></span></div>
-    <div><span><a href ="jsp/gauge.jsp">Simple Widget Using Array</a></span></div>
+	<div><span><a href = "jsp/Line-Chart-With-Time-Axis.jsp">Line chart with time axis</a></span></div>
+	<div><span><a href = "jsp/Plotting-Multiple-Series-On-Time-Axis.jsp">Plotting multiple series on time axis</a></span></div>
+	<div><span><a href = "jsp/Column-and-line-combination-on-time-axis.jsp">Column and line combination on time axis</a></span></div>
+	<div><span><a href = "jsp/Plotting-Two-Variables.jsp">Plotting two variables (measures)</a></span></div>
+	<div><span><a href = "jsp/Different-Plot-Type-Chart.jsp">Different plot type for each variable (measure)</a></span></div>
+	<div><span><a href = "jsp/ColumnChart-With-Time-Axis.jsp">Column chart with time axis</a></span></div>
+	<div><span><a href = "jsp/AreaChart-With-Time-Axis.jsp">Area chart with time axis</a></span></div>
+	<div><span><a href = "jsp/Interactive-candlestick-chart.jsp">Interactive candlestick chart</a></span></div>
+	<div><span><a href = "jsp/Annotating-single-data-point.jsp">Annotating single data point</a></span></div>
+	<div><span><a href = "jsp/Single-Event-Overlay.jsp">Single event overlay</a></span></div>
+	<div><span><a href = "jsp/Date-range-event-overlay.jsp">Date range event overlay</a></span></div>
+	<div><span><a href = "jsp/Adding-Reference-Line.jsp">Adding a reference line</a></span></div>
+    <div><span><a href = "jsp/first_chart.jsp">Simple Chart Using Array</a></span></div>
+    <div><span><a href = "jsp/gauge.jsp">Simple Widget Using Array</a></span></div>
     <div><span><a href = "jsp/map.jsp">Simple Map Using Array</a></span></div>
     <div><span><a href = "jsp/angulargauge.jsp">Angular Gauge</a></span></div>
     <div><span><a href = "jsp/chartClientSideExport.jsp">Export Chart As Image (client-side)</a></span></div>
@@ -32,18 +44,18 @@
     <div><span><a href = "jsp/ChartUpdateOnClick.jsp">Updating Different Chart</a></span></div>
     <div><span><a href = "jsp/ChartSpclChar.jsp">Use of specia characters</a></span></div>
     <div><span><a href = "jsp/ChartTooltipCustomization.jsp">customize chart tooltip</a></span></div>
-	<div><span><a href ="jsp/ChartLanguage.jsp">Use of different language</a></span></div>
-    <div><span><<a href ="jsp/ChartInstanceLevelAPI.jsp">"Add event to a chart dyamically" </a></span></div>
-    <div><span><a href ="jsp/ChartInstanceLevelAPI.jsp">Add event to a chart dyamically </a></span></div>
-     <div><span><a href ="jsp/ChartMessageExample.jsp">Configure chart message </a></span></div>
-     <div><span><a href="jsp/GetDataSelectScatterChart.jsp">Get data from select scatter chart and show them in tabular format </a></span></div>
-     <div><span><a href="jsp/NumberFormatModule.jsp">Use of fusioncharts number module API </a></span></div>
-     <div><span><a href ="jsp/InteractiveEvent.jsp">Show data plot value on click </a></span></div>
-     <div><span><a href="jsp/ProductLevelAPI.jsp">Change chart properties dynamically </a></span></div>
-     <div><span><a href="jsp/ProductLifeCycleEvent.jsp">sample to showcase one product life cycle event attachment </a></span></div>
-     <div><span><a href="jsp/SpecialChartTypeAPI.jsp">shocasing use special chart type API </a></span></div>
-     <div><span><a href="jsp/SpecialEvent.jsp">example of data update event </a></span></div>
-     <div><span><a href="jsp/UpdateDataRuntime.jsp">update dial value on runtime </a></span></div>
+	<div><span><a href = "jsp/ChartLanguage.jsp">Use of different language</a></span></div>
+    <div><span><a href = "jsp/ChartInstanceLevelAPI.jsp">"Add event to a chart dyamically" </a></span></div>
+    <div><span><a href = "jsp/ChartInstanceLevelAPI.jsp">Add event to a chart dyamically </a></span></div>
+    <div><span><a href = "jsp/ChartMessageExample.jsp">Configure chart message </a></span></div>
+    <div><span><a href = "jsp/GetDataSelectScatterChart.jsp">Get data from select scatter chart and show them in tabular format </a></span></div>
+    <div><span><a href = "jsp/NumberFormatModule.jsp">Use of fusioncharts number module API </a></span></div>
+    <div><span><a href = "jsp/InteractiveEvent.jsp">Show data plot value on click </a></span></div>
+    <div><span><a href = "jsp/ProductLevelAPI.jsp">Change chart properties dynamically </a></span></div>
+    <div><span><a href = "jsp/ProductLifeCycleEvent.jsp">sample to showcase one product life cycle event attachment </a></span></div>
+    <div><span><a href = "jsp/SpecialChartTypeAPI.jsp">shocasing use special chart type API </a></span></div>
+    <div><span><a href = "jsp/SpecialEvent.jsp">example of data update event </a></span></div>
+    <div><span><a href = "jsp/UpdateDataRuntime.jsp">update dial value on runtime </a></span></div>
 </div>
 </body>
 </html>

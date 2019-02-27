@@ -106,6 +106,245 @@ This is a public method used to generate the html code to  customize chart messa
 
 chartObj.AddMessage("loadMessage", "please wait data is being loaded");
 
+### **FusionTime:**
+
+**Create the chart object with TimeSeries chart with the required parameters as shown below.**
+
+```JSP
+<%
+    FusionCharts.FusionTable fusionTable = new FusionCharts.FusionTable(schema, data);
+
+    FusionCharts.TimeSeries timeSeries = new FusionCharts.TimeSeries((fusionTable);
+
+    // Wrapper constructor parameters
+    // charttype, chartID, width, height, renderAt, data format, TimeSeries object
+
+    FusionCharts fcChart = new FusionCharts("timeseries", "MyFirstChart" , "700", "450", "chart-container", "json", timeSeries);
+
+%>
+
+// Render the chart
+<%=fcChart.render()%>
+```
+There are two classes that you need to use in order to create a TimeSeries chart, `FusionTable` and `TimeSeries`.
+
+### **Constructor parameters of FusionTable :**
+This class creates `timeseries` compatible `FusionTable` object which later passed to the TimeSeries class constructor.
+
+```JSP
+// Creating FusionTable
+<%
+    FusionCharts.FusionTable fusionTable = new FusionCharts.FusionTable(schema, data);
+%>
+```
+
+Let you set the following parameters in FusionTable constructor.
+
+| Parameter | Type | Description |
+|:-------|:----------:| :------|
+|schema | `String` | The schema which defines the properties of the columns|
+|data | `String` | The actual values for each row and column of the DataTable|
+
+### **Data operation:**
+
+FusionTable also supports following DataTable operations:
+
+* Select
+* Sort
+* Filter
+* Pipe
+
+**`Select`** operation should be used only when you want to see few specific columns of the DataTable.
+
+```JSP
+<%
+    FusionCharts.FusionTable fusionTable = new FusionCharts.FusionTable(schema, data);
+
+    // Column names as parameter
+    fusionTable.Select("Country", "Sales");
+%>
+```
+
+| Parameter | Type | Description |
+|:-------|:----------:| :------|
+|columnName | `String` | Define multiple columns name.|
+
+**`Sort`** one of the major requirements while working with large sets of data is to sort the data in a specific order - most commonly, ascending or descending.
+
+```JSP
+<%
+    FusionCharts.FusionTable fusionTable = new FusionCharts.FusionTable(schema, data);
+
+    //column name and orderby
+    fusionTable.Sort("Sales", FusionCharts.FusionTable.OrderBy.ASC);
+%>
+```
+
+| Parameter | Type | Description |
+|:-------|:----------:| :------|
+|columnName | `String` | Define column name on which sorting will be applied.|
+|columnOrderBy | `Enum` | To sort the column in descending or ascending order. e.g. `FusionTable.OrderBy.ASC, FusionTable.OrderBy.DESC`|
+
+**`Filter`** comes with a set of operations that you can use to filter data values from a large dataset, based on one or more conditions. Supported filter operations are:
+
+* Equals
+* Greater
+* GreaterEquals
+* Less
+* LessEquals
+* Between
+
+```JSP
+// Filter - Equal
+
+<%
+    // Creating filter statement by passing the filter type, column
+    String filter1 = fusionTable.CreateFilter(FusionCharts.FusionTable.FilterType.Equals, "Country", "United States");
+
+    //Applying the filter on fusion table
+    fusionTable.ApplyFilter(filter1);
+%>
+```
+
+```JSP
+// Filter - Greater
+<%
+    // Creating filter statement by passing the filter type, column
+    String filter1 = fusionTable.CreateFilter(FusionCharts.FusionTable.FilterType.Greater, "Quantity", 100);
+
+    //Applying the filter on fusion table
+    fusionTable.ApplyFilter(filter1);
+%>
+```
+
+```JSP
+// Filter - GreaterEquals
+
+<%
+    // Creating filter statement by passing the filter type, column
+    String filter1 = fusionTable.CreateFilter(FusionCharts.FusionTable.FilterType.GreaterEquals, "Quantity", 100);
+
+    //Applying the filter on fusion table
+    fusionTable.ApplyFilter(filter1);
+%>
+```
+
+```JSP
+// Filter - Less
+<%
+    // Creating filter statement by passing the filter type, column
+    String filter1 = fusionTable.CreateFilter(FusionCharts.FusionTable.FilterType.Less, "Quantity", 100);
+
+    //Applying the filter on fusion table
+    fusionTable.ApplyFilter(filter1);
+%>
+```
+
+```JSP
+// Filter - LessEquals
+<%
+    // Creating filter statement by passing the filter type, column
+    String filter1 = fusionTable.CreateFilter(FusionCharts.FusionTable.FilterType.LessEquals, "Quantity", 100);
+
+    //Applying the filter on fusion table
+    fusionTable.ApplyFilter(filter1);
+%>
+```
+
+```JSP
+// Filter - Between
+<%
+    // Creating filter statement by passing the filter type, column
+    String filter1 = fusionTable.CreateFilter(FusionCharts.FusionTable.FilterType.Between, "Quantity", 100, 1000);
+
+    //Applying the filter on fusion table
+    fusionTable.ApplyFilter(filter1);
+%>
+```
+
+let you set the following parameter of `CreateFilter` method for creating filter statement.
+
+| Parameter | Type | Description |
+|:-------|:----------:| :------|
+|filterType | `Enum` | Define the filter type. e.g. `FusionCharts.FusionTable.FilterType.Equals`, `FusionCharts.FusionTable.FilterType.Greater` etc.|
+|columnName | `String` | Define column name on which the filter will be applied.|
+|values | `Object` | Define filter value(s). e.g. `String`, `Integer` values.|
+
+let you set the following parameter of `ApplyFilter` method for applying the filter on fusion table.
+
+| Parameter | Type | Description |
+|:-------|:----------:| :------|
+|filter | `String` | Define the `Filter statement`|
+
+```JSP
+// Filter - Apply conditional filter
+<%
+    // Define anonymous function to filter
+    fusionTable.ApplyFilterByCondition("(row, columns) => {"
+                + "return row[columns.Country] === 'United States' ||" 
+                + "(row[columns.Sales] > 100 && row[columns.Shipping_Cost] < 10);"
+            	+ "}");
+%>
+```
+
+**`Pipe`**  is an operation which lets you run two or more data operations in a sequence. Instead of applying multiple filters one by one to a DataTable which creates multiple DataTable(s), you can combine them in one single step using pipe and apply to the DataTable. This creates only one DataTable.
+
+```JSP
+<%
+    FusionCharts.FusionTable fusionTable = new FusionCharts.FusionTable(schema, data);
+
+    // Creating first filter statement by passing the filter type, column name and filter value
+    String filter1 = fusionTable.CreateFilter(FusionCharts.FusionTable.FilterType.Equals, "Country", "India");
+
+    // Creating second filter statement by passing the filter type, column name and filter value
+    String filter2 = fusionTable.CreateFilter(FusionCharts.FusionTable.FilterType.Greater, "Quantity", 100);
+
+    //Applying multiple filters one by one to a DataTable
+    fusionTable.Pipe(filter1, filter2);
+%>
+```
+
+| Parameter | Type | Description |
+|:-------|:----------:| :------|
+|filters | `String` | Define multiple filters.|
+
+### **Constructor parameter of TimeSeries :**
+This class creates `timeseries` compatible `TimeSeries` object which later passed to the chart object.
+
+```JSP
+// Creating TimeSeries object
+FusionCharts.TimeSeries timeSeries = new FusionCharts.TimeSeries(fusionTable);
+```
+
+let you set the following parameter in TimeSeries constructor.
+
+| Parameter | Type | Description |
+|:-------|:----------:| :------|
+|fusionTable | `FusionTable` | The Datatable which defines the schema and actual data (FusionTable).|
+
+#### Methods ####
+
+**`AddAttribute`** is a public method to accept data as a form of JSON string to configure the chart attributes. e.g. `caption`, `subCaption`, `xAxis` etc.
+
+```JSP
+<%
+    FusionCharts.FusionTable fusionTable = new FusionCharts.FusionTable(schema, data);
+
+    FusionCharts.TimeSeries timeSeries = new FusionCharts.TimeSeries(fusionTable);
+    
+    timeSeries.AddAttribute("caption", "{"
+                                        +	"text: ' Online Sales'"
+                                        + "}");
+%>                                      
+```
+
+let you set the following parameter in `AddAttribute` method.
+
+| Parameter | Type | Description |
+|:-------|:----------:| :------|
+|key | `String` | The attribute name.|
+|value | `String` | Define json formatted value.|
+
 ### License
 
 **FUSIONCHARTS:**
