@@ -1,6 +1,10 @@
-The MIT License (MIT)
+<<<<<<< HEAD
+# The MIT License (MIT)
+=======
+MIT License
+>>>>>>> 74f4d35e1f1e4853726e2f1a08f819a11da2483b
 
-Copyright (c) 2016 fusioncharts
+Copyright (c) 2020 FusionCharts, Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
