@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # The MIT License (MIT)
-=======
-MIT License
->>>>>>> 74f4d35e1f1e4853726e2f1a08f819a11da2483b
 
 Copyright (c) 2020 FusionCharts, Inc.
 
