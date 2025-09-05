@@ -18,38 +18,13 @@ JAVA 6 or higher
 
 ### Installation
 
-#### Option 1 — Manual (single file)
+**Download the**[fusioncharts-suite-xt](http://www.fusioncharts.com/)\*\*
 
-1. **Download the** [fusioncharts-suite-xt](http://www.fusioncharts.com/)  
-2. Unzip the archive and navigate to:  
-   `fusioncharts-suite-xt > integrations > java > fusioncharts-wrapper`  
-3. Copy the `fusioncharts.java` file into your project’s source folder.  
-4. Start using the methods and classes available under the **FusionCharts** namespace to generate charts in your project.  
+- Unzip the archive and move to "fusioncharts-suite-xt > integrations > java > fusioncharts-wrapper" to get the "fusioncharts.java" file.
+- Copy this file to your project folder.
+- Start using the methods and classes available under the **FusionCharts** namespace to generate charts in your project.
 
-> **Note:** FusionCharts JS libraries must already be installed within your project in order to work with this wrapper.  
-
-#### Option 2 — JitPack (Maven)
-
-1. Add the JitPack repository to your `pom.xml`:
-
-    ```xml
-    <repositories>
-      <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-      </repository>
-    </repositories>
-    ```
-
-2. Add the dependency (replace `Tag` with the release tag, e.g., `v1.0.0`):
-
-    ```xml
-    <dependency>
-      <groupId>com.github.fusioncharts</groupId>
-      <artifactId>jsp-wrapper</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-    ```
+**Note : FusionCharts JS libraries should already be installed within your project in order to work with this wrapper.**
 
 ### Usage Guide
 
